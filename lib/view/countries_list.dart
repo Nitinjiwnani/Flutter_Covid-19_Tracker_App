@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_cvoid19_tracker_app/Model/world_states_model.dart';
 import 'package:flutter_cvoid19_tracker_app/Services/states_services.dart';
+import 'package:flutter_cvoid19_tracker_app/view/detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CountriesListScreen extends StatefulWidget {
@@ -84,15 +85,40 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
                       if (searchController.text.isEmpty) {
                         return Column(
                           children: [
-                            ListTile(
-                              title: Text(snapshot.data![index]['country']),
-                              subtitle: Text(
-                                  snapshot.data![index]['cases'].toString()),
-                              leading: Image(
-                                  height: 50,
-                                  width: 50,
-                                  image: NetworkImage(snapshot.data![index]
-                                      ['countryInfo']['flag'])),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailScreen(
+                                        image: snapshot.data![index]
+                                            ['countryInfo']['flag'],
+                                        name: snapshot.data![index]['country'],
+                                        totalCases: snapshot.data![index]
+                                            ['cases'],
+                                        totalRecovered: snapshot.data![index]
+                                            ['recovered'],
+                                        totalDeaths: snapshot.data![index]
+                                            ['deaths'],
+                                        active: snapshot.data![index]['active'],
+                                        test: snapshot.data![index]['tests'],
+                                        todayRecovered: snapshot.data![index]
+                                            ['todayRecovered'],
+                                        critical: snapshot.data![index]
+                                            ['critical'],
+                                      ),
+                                    ));
+                              },
+                              child: ListTile(
+                                title: Text(snapshot.data![index]['country']),
+                                subtitle: Text(
+                                    snapshot.data![index]['cases'].toString()),
+                                leading: Image(
+                                    height: 50,
+                                    width: 50,
+                                    image: NetworkImage(snapshot.data![index]
+                                        ['countryInfo']['flag'])),
+                              ),
                             )
                           ],
                         );
@@ -101,15 +127,40 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
                           .contains(searchController.text.toLowerCase())) {
                         return Column(
                           children: [
-                            ListTile(
-                              title: Text(snapshot.data![index]['country']),
-                              subtitle: Text(
-                                  snapshot.data![index]['cases'].toString()),
-                              leading: Image(
-                                  height: 50,
-                                  width: 50,
-                                  image: NetworkImage(snapshot.data![index]
-                                      ['countryInfo']['flag'])),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailScreen(
+                                        image: snapshot.data![index]
+                                            ['countryInfo']['flag'],
+                                        name: snapshot.data![index]['country'],
+                                        totalCases: snapshot.data![index]
+                                            ['cases'],
+                                        totalRecovered: snapshot.data![index]
+                                            ['recovered'],
+                                        totalDeaths: snapshot.data![index]
+                                            ['deaths'],
+                                        active: snapshot.data![index]['active'],
+                                        test: snapshot.data![index]['tests'],
+                                        todayRecovered: snapshot.data![index]
+                                            ['todayRecovered'],
+                                        critical: snapshot.data![index]
+                                            ['critical'],
+                                      ),
+                                    ));
+                              },
+                              child: ListTile(
+                                title: Text(snapshot.data![index]['country']),
+                                subtitle: Text(
+                                    snapshot.data![index]['cases'].toString()),
+                                leading: Image(
+                                    height: 50,
+                                    width: 50,
+                                    image: NetworkImage(snapshot.data![index]
+                                        ['countryInfo']['flag'])),
+                              ),
                             )
                           ],
                         );

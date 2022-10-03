@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'dart:math';
 
 import 'package:flutter_cvoid19_tracker_app/view/world_states.dart';
@@ -72,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
             const Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Cvoid-19\nTracker App',
+                  'Covid-19\nTracker App',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                 ))
