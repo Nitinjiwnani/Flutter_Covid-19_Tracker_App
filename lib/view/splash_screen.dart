@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen>
               ),
               builder: (BuildContext context, Widget? child) {
                 return Transform.rotate(
-                  angle: _controller.value * 2.0 * 3.14,
+                  angle: _controller.value * 2.0 * pi,
                   child: child,
                 );
               },
